@@ -30,4 +30,3 @@ missing_values = df.isnull().sum()
 default_return_value = 0
 df['Returns'].fillna(default_return_value, inplace=True)
 # print(df.isnull().sum())
-
