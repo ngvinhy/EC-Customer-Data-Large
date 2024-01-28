@@ -24,12 +24,10 @@ df.describe(include='O')
 # Nhận thông tin về kiểu dữ liệu và giá trị còn thiếu
 df.info()
 
-# Tóm lại, các bước này giống như việc mở một cuốn sách mới lần đầu tiên. Chúng tôi đang xem nhanh phần đầu, hiểu các ký tự chính (loại dữ liệu), kiểm tra các trang bị thiếu (dữ liệu bị thiếu) và chuẩn bị đi sâu hơn vào câu chuyện (dự án của bạn) với sự hiểu biết rõ ràng về những gì chúng tôi ' đang làm việc với.
 # Xóa các hàng trùng lặp
 df.drop_duplicates(inplace=True)
 
 # **Kiểm tra thông tin còn thiếu:**
-# Chúng tôi không muốn có những phần còn thiếu trong câu chuyện của mình. Tương tự, chúng tôi không muốn thiếu dữ liệu trong tập dữ liệu của mình. Chúng tôi đang sử dụng mã để kiểm tra xem có thông tin nào bị thiếu hay không và đếm xem có bao nhiêu thông tin bị thiếu.
 # Kiểm tra các giá trị còn thiếu
 missing_values = df.isnull().sum()
 print("Thiếu giá trị:", missing_values)
@@ -41,7 +39,6 @@ df['Returns'].fillna(default_return_value, inplace=True)
 
 df.isnull().sum()
 
-# Giống như một cuốn sách có ngày xuất bản, tập dữ liệu của chúng tôi có 'Ngày mua'. Chúng tôi đang làm cho nó thân thiện hơn với người đọc bằng cách chuyển đổi nó thành định dạng ngày giờ. Ngoài ra, chúng tôi đang trích xuất năm và tháng từ 'Ngày mua' để giúp chúng tôi xem các mẫu theo thời gian.
 # Chuyển 'Purchase Date' sang định dạng ngày giờ
 df['Purchase Date'] = pd.to_datetime(df['Purchase Date'])
 
@@ -60,6 +57,7 @@ df['Total Purchase Amount'] = df['Product Price'] * df['Quantity']
 df.drop(['Payment Method'], axis=1, inplace=True)
 df.drop(['Customer Name'], axis=1, inplace=True)
 df.drop(['Age'], axis=1, inplace=True)
+df.drop(['Returns'], axis=1, inplace=True)
 
 df.head(10)
 
